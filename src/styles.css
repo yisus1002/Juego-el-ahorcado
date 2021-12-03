@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+.row{
+    border: solid 1px;
+}
+.ahorcado-img{
+    height: 400px;
+}
+
+button{
+    margin: 5px;
+}
