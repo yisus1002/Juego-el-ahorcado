@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ahorcado';
+  // title = 'ahorcado';
 
   palabra='AGUACATE';
   palabraOculta='';
@@ -16,9 +16,28 @@ export class AppComponent {
           'K','L','M', 'N','Ñ','O','P','Q','R','S',
           'T','U','V','W','X','Y','Z'];
 
-  constructor(){
+  constructor() {
     // console.log('se creo la app');
     // por cada letra que tenga la palabra se va agregar un '_ '
     this.palabraOculta ='_ '.repeat(this.palabra.length);
   }
+
+  // Metodo para comprobar la letra que el usuario presiona
+  comprobar( letra: string ){
+
+    // console.log('lA letra presionada es <- '+ letra);
+    // .split(' '); permite separar los componentes de una palabra y transformarlos en un array
+
+    const palabraOcultaArr = this.palabraOculta.split(' ');
+    // console.log(palabraOcultaArr);
+    for(let i=0; i<this.palabra.length; i ++){
+      if(this.palabra[i]===letra){
+        palabraOcultaArr[i]= letra;
+      }
+    }
+    // .join(' '); sirve para unir palabras
+    this.palabraOculta=palabraOcultaArr.join(' ');
+  }
+
+ 
 }

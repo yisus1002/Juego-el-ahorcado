@@ -18,7 +18,7 @@
 <div class="row">
   <div class="col text-center">
    <!-- *ngFor='' lo que hace es clonar la linea n veces -->
-    <button *ngFor="let letra of letras" class="btn btn-primary">
+    <button (click)="comprobar( letra )" *ngFor="let letra of letras" class="btn btn-primary">
       {{ letra }}
     </button>
 
