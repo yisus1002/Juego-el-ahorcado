@@ -11,6 +11,11 @@ export class AppComponent {
   palabra='AGUACATE';
   palabraOculta='';
 
+  intentos=0;
+
+  gano=false;
+  perdio=false;
+
 
   letras=['A','B','C','D','E','F','G','H','I', 'J',
           'K','L','M', 'N','Ñ','O','P','Q','R','S',
@@ -25,9 +30,11 @@ export class AppComponent {
   // Metodo para comprobar la letra que el usuario presiona
   comprobar( letra: string ){
 
-    // console.log('lA letra presionada es <- '+ letra);
-    // .split(' '); permite separar los componentes de una palabra y transformarlos en un array
+    this.existeLetra(letra);
 
+    /* console.log('lA letra presionada es <- '+ letra);
+    .split(' '); permite separar los componentes de una palabra y transformarlos en un array
+    */
     const palabraOcultaArr = this.palabraOculta.split(' ');
     // console.log(palabraOcultaArr);
     for(let i=0; i<this.palabra.length; i ++){
@@ -37,6 +44,31 @@ export class AppComponent {
     }
     // .join(' '); sirve para unir palabras
     this.palabraOculta=palabraOcultaArr.join(' ');
+
+    this.verificaGane();
+  }
+
+  /* Este metodo es para unir la palabra infresada sin espacios
+    y validar se ganó o perdio*/ 
+  verificaGane(){
+    const palabraArr = this.palabraOculta.split(' ');
+    const palabraEvaluar = palabraArr.join('');
+    if(palabraEvaluar === this.palabra){
+      this.gano=true;
+    }
+
+    if(this.intentos>=9){
+      this.perdio=true;
+    }
+  }
+  existeLetra(letra:string){
+    if(this.palabra.indexOf( letra ) >=0){
+      // Encontro la letra
+
+    }else{
+      // No encontre la letra
+      this.intentos++;
+    }
   }
 
  
