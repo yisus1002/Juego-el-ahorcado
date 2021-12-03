@@ -14,8 +14,24 @@
 </div>
 </div>
 
+<!-- *ngIf=" " es un condicional -->
+<div class="row" *ngIf="gano">
+  <div class="col text-center">
+    <h1>Felicidades has ganado!!!</h1>
+    <h4>🎉🎉👏</h4>
+</div>
+</div>
 
-<div class="row">
+
+<div class="row" *ngIf="perdio">
+  <div class="col text-center">
+    <h1>Lo siento has perdido 🤦‍♂️🤔!!</h1>
+    <h4> {{palabra}} </h4>
+</div>
+</div>
+
+
+<div class="row"  *ngIf="!gano && !perdio">
   <div class="col text-center">
    <!-- *ngFor='' lo que hace es clonar la linea n veces -->
     <button (click)="comprobar( letra )" *ngFor="let letra of letras" class="btn btn-primary">
