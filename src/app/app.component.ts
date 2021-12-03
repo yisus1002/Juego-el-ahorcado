@@ -8,9 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   // title = 'ahorcado';
 
-  palabra='AGUACATE';
+
+  palabra='';
+  vectorPalabras= ['AGUACATE','AGUA','ELECTRONICA','PERRO', 'GATO', 'JESUS','CUADERNO'];
+  
+
   palabraOculta='';
 
+  num=0;
   intentos=0;
 
   gano=false;
@@ -23,7 +28,9 @@ export class AppComponent {
 
   constructor() {
     // console.log('se creo la app');
+    // console.log(this.vectorPalabras);
     // por cada letra que tenga la palabra se va agregar un '_ '
+    this.numRandon();
     this.palabraOculta ='_ '.repeat(this.palabra.length);
   }
 
@@ -70,6 +77,16 @@ export class AppComponent {
       this.intentos++;
     }
   }
+  refresh(){ 
+    window.location.reload();
+   }
 
- 
+   numRandon(){
+     this.num=Math.round(Math.random()*(this.vectorPalabras.length - 1));
+     this.palabra=this.vectorPalabras[this.num];
+     console.log(this.num+'->  ' + this.palabra);
+   }
+
+   
+
 }

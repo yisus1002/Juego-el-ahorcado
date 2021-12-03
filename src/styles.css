@@ -1,10 +1,28 @@
-.row{
-    border: solid 1px;
+body{
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+   height: 100vh;
 }
 .ahorcado-img{
-    height: 400px;
+    height: 300px;
 }
 
 button{
+    width: 40px;
     margin: 5px;
+}
+.reiniciar{
+    width: auto;
+}
+
+
+.col-12{
+    margin: auto;
+}
+h1,h3,h4{
+    user-select: none;
+}
+button:hover{
+    transform: translateY(-3px);
+    transition: all ease .2s;
+    box-shadow: 1px 4px 10px rgba(0,0,0,0.93);
 }
