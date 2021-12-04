@@ -1,4 +1,43 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="app.component.html">
+        <img src="favicon.ico" alt="" width="30" height="24" class="d-inline-block align-text-top">
+        El ahorcado
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          <a class="nav-link" href="#">Nosotros</a>
+          <a class="nav-link" href="#">contactanos</a>
+          <!-- <a class="nav-link disabled"></a> -->
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style="font-weight: 800; color: rgb(25, 25, 155);">
+          Instrucciones de juego
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          El juego consiste en adividar la palabra deacuerdo al tamaño de la misma, ten en cuenta que si al ingresar una letra y  esta na en la palabra que vas adivinar vas perdiendo vidas es decir los intentos.
+        </div>
+      </div>
+    </div>
+
+  </div>
 <div class="col-12">
+
   <div class="container">
     <div class="col text-center">
     <img src="assets/img/{{intentos}}.png " alt="img" class="ahorcado-img">
@@ -22,18 +61,20 @@
    <div class="col text-center">
      <h1>Felicidades has ganado!!!</h1>
      <h4>🎉🎉👏</h4>
-     <button (click)="refresh()" class="reiniciar btn btn-primary">Siguiente</button>
+     <!-- <button (click)="refresh()" class="reiniciar btn btn-primary">Siguiente</button> -->
+     <button (click)="siguiente()" class="reiniciar btn btn-primary btn-j">Siguiente</button>
  </div>
  </div>
  
  
  <div class="container" *ngIf="perdio"
-  style="background-color: blanchedalmond;
+  style="background-color: rgb(60, 255, 21);
   border-radius: 20px;">
    <div class="col text-center">
      <h1>Lo siento has perdido 🤦‍♂️🤔!!</h1>
-     <h4> {{palabra}} </h4>
-     <button (click)="refresh()" class="reiniciar btn btn-primary">Reintentar</button>
+     <h4> La palabra era -> {{palabra}} </h4>
+     <!-- <button (click)="refresh()" class="reiniciar btn btn-primary">Reintentar</button> -->
+     <button (click)="siguiente()" class="reiniciar btn btn-primary btn-j">Reintentar</button>
  </div>
  </div>
  
@@ -41,12 +82,40 @@
  <div class="container centra"  *ngIf="!gano && !perdio">
    <div class="col text-center">
     <!-- *ngFor='' lo que hace es clonar la linea n veces -->
-     <button (click)="comprobar( letra )" *ngFor="let letra of letras" class="btn btn-primary ">
+     <button (click)="comprobar( letra )" *ngFor="let letra of letras" class="btn btn-primary btn-j">
        {{ letra }}
+       
      </button>
-
+  
  </div>
  </div>
-
-
 </div>
+
+</main>
+
+<footer class="text-center" style="background-color: #91868670;">
+  <!-- Grid container -->
+  <div class="container pt-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank" role="button" data-mdb-ripple-color="dark">
+        <i class="fab fa-facebook-f"></i></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://twitter.com/?lang=es" target="_blank" role="button" data-mdb-ripple-color="dark" ><i class="fab fa-twitter"></i></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1"  href="https://www.instagram.com/" target="_blank" role="button" data-mdb-ripple-color="dark" ><i class="fab fa-instagram"></i></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/home/?originalSubdomain=co" target="_blank" role="button" data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
+      <!-- Github -->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/yisus1002" target="_blank" role="button" data-mdb-ripple-color="dark" ><i class="fab fa-github"></i></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+      <div class="text-center copy" style="background-color: rgba(0, 0, 0, 0.912);">
+       © 2021 Copyright: Jesus Garcia
+  </div>
+</footer>

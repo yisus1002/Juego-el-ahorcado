@@ -10,7 +10,8 @@ export class AppComponent {
 
 
   palabra='';
-  vectorPalabras= ['AGUACATE','AGUA','ELECTRONICA','PERRO', 'GATO', 'JESUS','CUADERNO'];
+  vectorPalabras= ['AGUACATE','AGUA','ELECTRONICA','PERRO', 'GATO', 'JESUS','CUADERNO','LAPIZ','MUESTRA', 'GARCIA', 
+  'LOBO','ESTERNOCLEIDOMASTOIDEO', 'PERICO', 'HERNANDEZ'];
   
 
   palabraOculta='';
@@ -27,11 +28,24 @@ export class AppComponent {
           'T','U','V','W','X','Y','Z'];
 
   constructor() {
-    // console.log('se creo la app');
-    // console.log(this.vectorPalabras);
-    // por cada letra que tenga la palabra se va agregar un '_ '
     this.numRandon();
+    this.Agry();
+   
+  }
+
+  Agry(){
     this.palabraOculta ='_ '.repeat(this.palabra.length);
+  }
+
+  siguiente(){
+
+    this.numRandon();
+    this.Agry();
+
+    this.gano=false;
+    this.perdio=false;
+    this.intentos=0;
+
   }
 
   // Metodo para comprobar la letra que el usuario presiona
@@ -77,9 +91,11 @@ export class AppComponent {
       this.intentos++;
     }
   }
-  refresh(){ 
-    window.location.reload();
-   }
+ 
+  // Este metodo recarga la pagina
+  // refresh(){ 
+  //   window.location.reload();
+  //  }
 
    numRandon(){
      this.num=Math.round(Math.random()*(this.vectorPalabras.length - 1));
@@ -87,6 +103,6 @@ export class AppComponent {
      console.log(this.num+'->  ' + this.palabra);
    }
 
-   
 
+   
 }
